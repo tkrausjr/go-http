@@ -12,4 +12,8 @@ RUN cd /go/src/ && \
 RUN cd /go/src/go-http/ && \
 	go build -x -o ./bin/conference-app conference-app.go
 
-ENTRYPOINT ["/go/src/go-http/conference-app-wrapper.sh"]
+EXPOSE 8080
+
+# ENTRYPOINT ["/go/src/go-http/conference-app-wrapper.sh"]
+
+CMD ["/go/src/go-http/bin/conference-app"]
