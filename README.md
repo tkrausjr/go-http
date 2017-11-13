@@ -11,14 +11,14 @@ High Level is checkout the REPO to get the Dockerfile and run a "docker build". 
 then a GO Install inside the Container.
 
 (Docker or Build Host)
-+ git clone https://github.com/tkrausjr/go-http.git
-+ cd ./go-http
-+ Build the Go Binaries from Src.
-++ docker build -t conference-app .
-+ SHOW Build Output
-++ docker images
-+ Test Locally:
-++ docker run -p 8080:8080 --name="testing-conference-app:latest" -d conference-app
+* git clone https://github.com/tkrausjr/go-http.git
+* cd ./go-http
+* Build the Go Binaries from Src.
+  * docker build -t conference-app .
+* SHOW Build Output
+  * docker images
+* Test Locally:
+  * docker run -p 8080:8080 --name="testing-conference-app:latest" -d conference-app
 
 
 ## Push the Image to a new Repository
