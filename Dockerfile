@@ -3,7 +3,7 @@
 # Listening on port TCP 8080
 
 # Get latest golang docker image.
-FROM golang:1.8 
+FROM golang:1.8.5-alpine3.6
 
 MAINTAINER  TKraus 
 
