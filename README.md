@@ -40,5 +40,5 @@ then a GO Install inside the Container.
 * Open Chrome and navigate to http://localhost:<port>  Defaults to :8080 
 
 ## Update the Website Static Content
-The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using HUGO so we change our site in that local REPO and the output is put in a ./public folder which we can move over to the go-http repo.
+The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using the Open Source product HUGO so we change our site settings in this repo (https://github.com/tkrausjr/my-conference) and the output is put in a ./public folder which we can move over to the go-http repo.
 * $ cp -R ./public ~/github/go-http/
