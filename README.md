@@ -12,8 +12,8 @@ then a GO Install inside the Container.
 
 (Docker or Build Host)
 * Checkout the Repo.
- * git clone https://github.com/tkrausjr/go-http.git
- * cd ./go-http
+  * git clone https://github.com/tkrausjr/go-http.git
+  * cd ./go-http
 * Build the Go Binaries from Src.
   * docker build -t conference-app .
 * SHOW Build Output
@@ -24,11 +24,11 @@ then a GO Install inside the Container.
 
 ## Push the Image to a new Repository
 * (Optional) Log in to new repository
- * docker login 10.173.13.31 -u admin
+  * docker login 10.173.13.31 -u admin
 * Tag the newly built image
- * docker tag conference-app:latest 10.173.13.31/conference/conference-app:latest
+  * docker tag conference-app:latest 10.173.13.31/conference/conference-app:latest
 * Push the newly built image.
- * docker push 10.173.13.31/conference/conference-app:latest
+  * docker push 10.173.13.31/conference/conference-app:latest
 
 
 ## Run the site locally right from the local REPO.
@@ -39,5 +39,6 @@ then a GO Install inside the Container.
 * Note the PORT the server is Listening on:
 * Open Chrome and navigate to http://localhost:<port>  Defaults to :8080 
 
-## The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using HUGO so we change our site in that local REPO and the output is put in a ./public folder which we can move over to the go-http repo.
+## Update the Website Static Content
+The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using HUGO so we change our site in that local REPO and the output is put in a ./public folder which we can move over to the go-http repo.
 * $ cp -R ./public ~/github/go-http/
