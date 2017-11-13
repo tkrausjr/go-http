@@ -30,6 +30,20 @@ then a GO Install inside the Container.
 * Push the newly built image.
   * docker push 10.173.13.31/conference/conference-app:latest
 
+## Run the site in Kubernetes Cluster
+* Create a Deployment with the Image 
+  * kubectl run conference-app --replicas=2 --labels="run=conference-app" --image=tkrausjr/conference-app:latest --port=8080
+* Create an externally accessible Service for the Deployment
+  * kubectl expose deployment conference-app --type=NodePort --name=conference-app
+* Get NodePort: Value  (Ex. 32449 )
+  * kubectl describe services conference-app
+* Get node name ( Ex. vm-c7d7773d-fd57-4efa-b8aa-14c405dde4cb)
+  * kubectl get nodes 
+* Get IP  (Ex. 10.190.64.71) 
+  * kubectl describe node vm-c7d7773d-fd57-4efa-b8aa-14c405dde4cb
+* Now you can test access at http://<ExternalIP>:<NodePort>
+  * Chrome http://10.190.64.71:32449
+  * curl http://10.190.64.71:32449
 
 ## Run the site locally right from the local REPO.
 * $ cd /Users/kraust/Documents/go-workspace/src/github/demo-app
@@ -40,5 +54,5 @@ then a GO Install inside the Container.
 * Open Chrome and navigate to http://localhost:<port>  Defaults to :8080 
 
 ## Update the Website Static Content
-The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using HUGO so we change our site in that local REPO and the output is put in a ./public folder which we can move over to the go-http repo.
+The App will serve the contents of the /public folder so to make canges to the Website you would update the contents of the ./public folder. In this case we are using the Open Source product HUGO so we change our site settings in this repo (https://github.com/tkrausjr/my-conference) and the output is put in a ./public folder which we can move over to the go-http repo.
 * $ cp -R ./public ~/github/go-http/
