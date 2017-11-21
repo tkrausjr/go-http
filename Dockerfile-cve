@@ -2,11 +2,8 @@
 # and build a new Docker Image with default Entrypoint
 # Listening on port TCP 8080
 
-# Use ALPINE Image for the base image.
-# FROM golang:1.8.5-alpine3.6
-
-# Use UBUNTU Jessie as the base image.
-FROM golang:1.8.4-jessie
+# Get latest golang docker image.
+FROM golang:1.8.5-alpine3.6
 
 MAINTAINER  TKraus 
 
@@ -21,6 +18,10 @@ COPY . /go/src/go-http
 # Download and install third party dependencies into the container.
 RUN go-wrapper download 
 RUN go-wrapper install 
+
+# Introduce a vulnerability
+RUN apk update
+RUN apk add openssh openntp vim
 
 # Set the PORT environment variable
 ENV PORT 8080
