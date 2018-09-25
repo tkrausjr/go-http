@@ -4,8 +4,8 @@
 
 # Use Official Go UBUNTU Jessie or Alpine Secure Image as the base image.
 
-# FROM golang:1.8.4-jessie
-FROM golang:1.8.5-alpine3.6
+FROM golang:1.8.4-jessie
+# FROM golang:1.8.5-alpine3.6
 
 MAINTAINER  TKraus 
 
